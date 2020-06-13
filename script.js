@@ -12,11 +12,17 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+  //initial prompts and criteria
   var Passwordlength= window.prompt("Password needs to be between 8-128 characters in length.");
   if (Passwordlength < 8 || Passwordlength > 128) {
     window.alert("Password needs to be between 8-128 charcters. Please try again.");
       return writePassword();
   };
+  //variables and prompts for criteria
+  var firstConfirm = window.confirm("Would you like to have Upper Case")
+  var secondConfirm = window.confirm("Would you like to have Lower Case");
+  var thirdConfirm = window.confirm("Would you like to have Numbers");
+  var fourthConfirm = window.confirm("Would you like to have Special characters");
 
 
   var password = generatePassword();
