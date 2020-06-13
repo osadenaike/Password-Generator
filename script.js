@@ -19,17 +19,61 @@ function writePassword() {
       return writePassword();
   };
   //variables and prompts for criteria
-  var firstConfirm = window.confirm("Would you like to have Upper Case")
-  var secondConfirm = window.confirm("Would you like to have Lower Case");
-  var thirdConfirm = window.confirm("Would you like to have Numbers");
-  var fourthConfirm = window.confirm("Would you like to have Special characters");
+  var firstConfirm = window.confirm("Would you like to include Upper Case letters")
+  var secondConfirm = window.confirm("Would you like to include Lower Case letters");
+  var thirdConfirm = window.confirm("Would you like to include Numbers");
+  var fourthConfirm = window.confirm("Would you like to include Special characters");
 
+  //conditional statement for criteria and alert if not criteria not met
+  if(firstConfirm == false && secondConfirm == false && thirdConfirm == false && fourthConfirm == false)
+ {
+   alert("you need to pick at least one type!");
+ };
 
-  var password = generatePassword();
+ while(result.length <= Passwordlength-1){
+
+  if(firstConfirm == true)
+   {
+    var randomuppercase = uppercase[Math.floor(Math.random()*uppercase.length)];
+     result.push(randomuppercase)
+    if(result.length==Passwordlength) {
+      break;
+    }
+   }
+    
+   if(secondConfirm == true)
+   {
+    var randomlowercase = lowercase[Math.floor(Math.random()*lowercase.length)];
+    result.push(randomlowercase)
+    if(result.length==Passwordlength) {
+      break;
+    }
+   }
+   if(thirdConfirm == true)
+   {
+    var randomnumber = number[Math.floor(Math.random() * number.length)];
+    result.push(randomnumber)
+    if(result.length==Passwordlength) {
+      break;
+    }
+   }
+  
+  if(fourthConfirm == true)
+   {
+    var randomspecialcharacter = specialcharacter[Math.floor(Math.random()*specialcharacter.length)];
+    result.push(randomspecialcharacter)
+    if(result.length==Passwordlength) {
+      break;
+    }
+   }
+  
+  }
+  console.log(result.length);
+  console.log(result);
+
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
+  passwordText.value = result.join("");
 }
 
 // Add event listener to generate button
