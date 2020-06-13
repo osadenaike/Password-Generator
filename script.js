@@ -27,7 +27,7 @@ function writePassword() {
   //conditional statement for criteria and alert if not criteria not met
   if(firstConfirm == false && secondConfirm == false && thirdConfirm == false && fourthConfirm == false)
  {
-   alert("you need to pick at least one type!");
+   alert("you need to pick at least one of the characters!");
  };
 
  while(result.length <= Passwordlength-1){
